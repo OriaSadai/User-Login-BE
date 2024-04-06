@@ -18,13 +18,10 @@ import java.io.IOException;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
-
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
-
     @Autowired
     private JwtUtil jwtUtil;
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
@@ -38,7 +35,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             jwt = authorizationParam.substring(7);
             username = jwtUtil.extractUsername(jwt);
         }
-
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 

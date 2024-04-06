@@ -1,8 +1,9 @@
 package com.userLogin.repository;
 
-import com.userLogin.model.CustomUser;
+import com.userLogin.model.User;
 
 public interface UserRepository {
-    void createUser(CustomUser customUser);
-    CustomUser findUserByUsername(String username);
+    void createUser(User user);
+    User findUserByUsername(String username);
+    void deleteUserByUserId(Long id);
 }
